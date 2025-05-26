@@ -9,6 +9,7 @@ This guide explains how to program the single channel motor driver using the **A
 - Single Channel Motor Driver
 - **USB-to-UART** breakout board with 5V logic (e.g., FTDI Basic, FT232RL)
 - **Jumper wires** female-to-male
+- **0.1uF capacitor** for the reset circuit
 - **Arduino IDE** installed on your computer
 - **Code** Downloaded from this repository
 ---
@@ -22,17 +23,21 @@ Connect your **FTDI breakout board** to the ATmega328P target board as follows:
 | TXD          | J2-1                         |
 | RXD          | J2-2                         |
 | GND          | B- (GND)                     |
-| DTR (or RTS) | J5-1                         |
+| DTR (or RTS) | capacitor(-)                 |
+| capacitor(+) | J5-1                         |
 
 > ⚠️ **Important:** Do **not** connect the FTDI VCC or 5V pin. Your board is already powered via 12V.
+> The capacitor is wired in series between the DRS/RTS pin on the USB-UART and J5-1. This ensures the reset is handled correctly
 
+![wiring](./IMG_7524.jpeg)
 ---
 
 ## 💻 Arduino IDE Setup
 
 1. **Open the Arduino IDE**
 2. Go to **Tools > Board** and select:
-   - `Arduino Uno` (if your ATmega328P uses the Uno bootloader)
+   - `Arduino Mini or Pro Mini`
+     ![boardSelection](./arduinoBoardSelection.png)
 3. Go to **Tools > Port** and choose the COM port assigned to your FTDI adapter
 4. Open the sketch
 5. Click **Upload**
