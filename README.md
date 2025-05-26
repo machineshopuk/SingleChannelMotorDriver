@@ -1,6 +1,6 @@
-# Programming the Single Channel Motor Driver Using Arduino IDE and USB FTDI Breakout Board
+# Programming the Single Channel Motor Driver Using Arduino IDE and USB-UART Breakout Board
 
-This guide explains how to program the single channel motor driver using the **Arduino IDE** and a **USB-to-FTDI (FT232RL) breakout board**. The board will need to be powered with 12V via **J4-1 (- GND)** and **J4-2 (+ 12V)**.
+This guide explains how to program the single channel motor driver using the **Arduino IDE** and a **USB-UART board**. The Single Channel Motor Driver board will need to be powered with 12V via **J4-1 (- GND)** and **J4-2 (+ 12V)**.
 
 ---
 
@@ -27,7 +27,7 @@ Connect your **FTDI breakout board** to the ATmega328P target board as follows:
 | capacitor(+) | J5-1                         |
 
 > ⚠️ **Important:** Do **not** connect the FTDI VCC or 5V pin. Your board is already powered via 12V.
-> The capacitor is wired in series between the DRS/RTS pin on the USB-UART and J5-1. This ensures the reset is handled correctly
+> The capacitor is wired in series between the DRS/RTS pin on the USB-UART and J5-1. This ensures the reset is handled correctly. The wire to J5-1 does not need to be soldered in, as long as the wire is touching the pad.
 
 ![wiring](./IMG_7524.jpeg)
 ---
